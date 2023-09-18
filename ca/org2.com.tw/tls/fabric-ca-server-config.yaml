@@ -40,7 +40,7 @@
 version: v1.5.7
 
 # Server's listening port (default: 7054)
-port: 7052
+port: 3154
 
 # Cross-Origin Resource Sharing (CORS)
 cors:
@@ -85,7 +85,7 @@ tls:
 #############################################################################
 ca:
   # Name of this CA
-  name: tls.org1.com.tw
+  name: tls.org2.com.tw
   # Key file (is only used to import a private key into BCCSP)
   keyfile:
   # Certificate file (default: ca-cert.pem)
@@ -129,7 +129,7 @@ registry:
   # Contains identity information which is used when LDAP is disabled
   identities:
      - name: tlsadmin
-       pass: tlsadminpw
+       pass: 9a5bb428d5cccb4c1f7078fb72316012
        type: client
        affiliation: ""
        attrs:
@@ -308,7 +308,7 @@ signing:
 #  if the server creates a self-signed TLS certificate.
 ###########################################################################
 csr:
-   cn: tls.org1.com.tw
+   cn: tls.org2.com.tw
    keyrequest:
      algo: ecdsa
      size: 256
@@ -319,9 +319,8 @@ csr:
         O: Hyperledger
         OU: Fabric
    hosts:
-     - 40d15941a079
      - localhost
-     - tls.org1.com.tw
+     - tls.org2.com.tw
    ca:
       expiry: 131400h
       pathlength: 1

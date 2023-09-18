@@ -85,7 +85,7 @@ tls:
 #############################################################################
 ca:
   # Name of this CA
-  name: tls.orderer.com.tw
+  name: tls.org0.com.tw
   # Key file (is only used to import a private key into BCCSP)
   keyfile:
   # Certificate file (default: ca-cert.pem)
@@ -129,7 +129,7 @@ registry:
   # Contains identity information which is used when LDAP is disabled
   identities:
      - name: tlsadmin
-       pass: tlsadminpw
+       pass: e6764b589fc34d7c8f7ca99de4ecdf17
        type: client
        affiliation: ""
        attrs:
@@ -308,7 +308,7 @@ signing:
 #  if the server creates a self-signed TLS certificate.
 ###########################################################################
 csr:
-   cn: tls.orderer.com.tw
+   cn: tls.org0.com.tw
    keyrequest:
      algo: ecdsa
      size: 256
@@ -319,9 +319,8 @@ csr:
         O: Hyperledger
         OU: Fabric
    hosts:
-     - 40d15941a079
      - localhost
-     - tls.org1.com.tw
+     - tls.org0.com.tw
    ca:
       expiry: 131400h
       pathlength: 1

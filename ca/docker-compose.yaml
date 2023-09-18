@@ -3,6 +3,34 @@ version: '3.7'
 
 
 services:
+  ca.org0.com.tw:
+    container_name: ca.org0.com.tw
+    image: hyperledger/fabric-ca:latest
+    labels:
+      service: hyperledger-fabric
+      type: ca
+    ports:
+      - 1054:1054
+    command: sh -c 'fabric-ca-server start'
+    volumes:
+      - ./org0.com.tw/ca:/etc/hyperledger/fabric-ca-server
+    networks:
+      - fabric-ca
+
+  tls.org0.com.tw:
+    container_name: tls.org0.com.tw
+    image: hyperledger/fabric-ca:latest
+    labels:
+      service: hyperledger-fabric
+      type: ca.tls
+    ports:
+      - 1154:1154
+    command: sh -c 'fabric-ca-server start'
+    volumes:
+       - ./org0.com.tw/tls:/etc/hyperledger/fabric-ca-server
+    networks:
+      - fabric-ca
+
   ca.org1.com.tw:
     container_name: ca.org1.com.tw
     image: hyperledger/fabric-ca:latest
@@ -24,7 +52,7 @@ services:
       service: hyperledger-fabric
       type: ca.tls
     ports:
-      - 1154:1154
+      - 2154:2154
     command: sh -c 'fabric-ca-server start'
     volumes:
        - ./org1.com.tw/tls:/etc/hyperledger/fabric-ca-server
